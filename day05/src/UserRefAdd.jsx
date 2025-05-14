@@ -38,7 +38,13 @@ export default function UserRefAdd() {
       <input name="email" onChange={onChange} value={inputs.email} placeholder="이메일을 입력" />
 
       <button onClick={() => alert(inputRef.current.value)}>확인</button>
-      <button onClick={() => inputRef.current.focus()}>초기화</button>
+      <button onClick={() => {
+        inputRef.current.focus();
+        setInputs({
+          name: '',
+          email: ''
+        });
+      }}>초기화</button>
 
 
     </div>
