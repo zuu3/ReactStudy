@@ -1,5 +1,5 @@
 import Rooms from "../Rooms.ts";
-import Header from "./Header.tsx";
+// import Header from "./Header.tsx";
 // import Card from "./Card.jsx";
 import Router from "../Router.tsx";
 import "../App.css";

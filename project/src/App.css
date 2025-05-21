@@ -1,0 +1,310 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Base Styles */
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #10b981;
+  --text-dark: #1f2937;
+  --text-light: #f9fafb;
+  --background-light: #ffffff;
+  --background-dark: #111827;
+  --card-light: #ffffff;
+  --card-dark: #1f2937;
+  --border-light: #e5e7eb;
+  --border-dark: #374151;
+  --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+  --transition-speed: 0.3s;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Theme Styles */
+.light-theme {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
+/* Room Details Styles */
+.room-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.room-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all var(--transition-speed) ease;
+}
+
+.light-theme .room-card {
+  background-color: var(--card-light);
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-light);
+}
+
+.dark-theme .room-card {
+  background-color: var(--card-dark);
+  box-shadow: var(--shadow-dark);
+  border: 1px solid var(--border-dark);
+}
+
+@media (min-width: 768px) {
+  .room-card {
+    flex-direction: row;
+  }
+}
+
+.room-image-container {
+  flex: 1;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.room-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.room-image:hover {
+  transform: scale(1.03);
+}
+
+.room-info-container {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.room-location {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.dark-theme .room-location {
+  color: #9ca3af;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 1rem 0;
+}
+
+.light-theme .divider {
+  background-color: var(--border-light);
+}
+
+.dark-theme .divider {
+  background-color: var(--border-dark);
+}
+
+.room-detail {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.room-guests, .room-rating, .room-price {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.rating-count {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.dark-theme .rating-count {
+  color: #9ca3af;
+}
+
+.price-amount {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.price-period {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.dark-theme .price-period {
+  color: #9ca3af;
+}
+
+/* Tab Styles */
+.room-tabs {
+  margin: 2rem 0;
+}
+
+.tab-content {
+  padding: 2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: all var(--transition-speed) ease;
+  animation: fadeIn 0.5s ease;
+}
+
+.light-theme .tab-content {
+  background-color: var(--card-light);
+  border: 1px solid var(--border-light);
+  border-top: none;
+}
+
+.dark-theme .tab-content {
+  background-color: var(--card-dark);
+  border: 1px solid var(--border-dark);
+  border-top: none;
+}
+
+.tab-pane p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.light-theme .theme-toggle {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.dark-theme .theme-toggle {
+  background-color: #f59e0b;
+  color: var(--text-dark);
+}
+
+.light-theme .theme-toggle:hover {
+  background-color: #4338ca;
+}
+
+.dark-theme .theme-toggle:hover {
+  background-color: #d97706;
+}
+
+/* Custom Nav Tabs */
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.light-theme .nav-tabs .nav-link {
+  color: #6b7280;
+}
+
+.dark-theme .nav-tabs .nav-link {
+  color: #9ca3af;
+}
+
+.light-theme .nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  background-color: var(--card-light);
+  border: 1px solid var(--border-light);
+  border-bottom: none;
+}
+
+.dark-theme .nav-tabs .nav-link.active {
+  color: var(--secondary-color);
+  background-color: var(--card-dark);
+  border: 1px solid var(--border-dark);
+  border-bottom: none;
+}
+
+.light-theme .nav-tabs .nav-link:not(.active):hover {
+  color: var(--primary-color);
+  background-color: #f3f4f6;
+}
+
+.dark-theme .nav-tabs .nav-link:not(.active):hover {
+  color: var(--secondary-color);
+  background-color: #1f2937;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .room-card {
+    flex-direction: column;
+  }
+  
+  .room-image-container {
+    min-height: 200px;
+  }
+  
+  .room-name {
+    font-size: 1.5rem;
+  }
+  
+  .room-location {
+    font-size: 1.125rem;
+  }
+  
+  .nav-tabs .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .tab-content {
+    padding: 1.5rem;
+  }
+}
